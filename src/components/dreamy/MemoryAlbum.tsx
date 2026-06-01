@@ -21,22 +21,22 @@ export function MemoryAlbum() {
   const [polaroids, setPolaroids] = useState<Polaroid[]>([   
     {     
       id: "1",     
-      src: "src/assets/photos/photo1.jpeg",     
+      src: "public/assets/photos/photo1.jpeg",     
       caption: "Our First Memory",   
     },   
     {     
       id: "2",     
-      src: "src/assets/photos/photo2.jpeg",     
+      src: "public/assets/photos/photo2.jpeg",     
       caption: "You & Me",   
     },
     {     
       id: "3",     
-      src: "src/assets/photos/photo3.jpeg",     
+      src: "public/assets/photos/photo1.jpeg",     
       caption: "Forever Soft",   
     }, 
     {     
       id: "4",     
-      src: "src/assets/photos/photo4.jpeg",     
+      src: "public/assets/photos/photo1.jpeg",     
       caption: "Forever Soft",   
     }, 
   ]);
