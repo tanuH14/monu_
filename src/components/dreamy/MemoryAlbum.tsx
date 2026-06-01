@@ -31,12 +31,12 @@ export function MemoryAlbum() {
     },
     {     
       id: "3",     
-      src: "/assets/photos/photo1.jpeg",     
+      src: "/assets/photos/photo3.jpeg",     
       caption: "Forever Soft",   
     }, 
     {     
       id: "4",     
-      src: "/assets/photos/photo1.jpeg",     
+      src: "/assets/photos/photo4.jpeg",     
       caption: "Forever Soft",   
     }, 
   ]);
