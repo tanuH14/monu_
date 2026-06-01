@@ -1,0 +1,165 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Italiana&family=Cormorant+Upright:wght@300;400;500&family=Pinyon+Script&family=Inter:wght@300;400;500&display=swap');
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-rose: var(--rose);
+  --color-lavender: var(--lavender);
+  --color-peach: var(--peach);
+  --font-display: 'Italiana', serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-script: 'Pinyon Script', cursive;
+  --font-sans: 'Inter', sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Dreamy blush universe */
+  --background: oklch(0.96 0.025 20);
+  --foreground: oklch(0.32 0.05 15);
+  --card: oklch(0.985 0.012 25 / 0.7);
+  --card-foreground: oklch(0.32 0.05 15);
+  --popover: oklch(0.98 0.015 25);
+  --popover-foreground: oklch(0.32 0.05 15);
+  --primary: oklch(0.78 0.10 15);          /* rose quartz */
+  --primary-foreground: oklch(0.99 0.005 20);
+  --secondary: oklch(0.93 0.04 60);        /* champagne */
+  --secondary-foreground: oklch(0.35 0.05 20);
+  --muted: oklch(0.94 0.02 30);
+  --muted-foreground: oklch(0.50 0.04 20);
+  --accent: oklch(0.88 0.06 350);          /* soft pink */
+  --accent-foreground: oklch(0.30 0.05 15);
+  --destructive: oklch(0.65 0.18 20);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.88 0.03 25 / 0.6);
+  --input: oklch(0.92 0.025 25);
+  --ring: oklch(0.80 0.08 350);
+
+  --gold: oklch(0.82 0.10 80);             /* champagne gold */
+  --rose: oklch(0.78 0.12 15);
+  --lavender: oklch(0.82 0.06 300);
+  --peach: oklch(0.86 0.08 45);
+
+  --gradient-sky: radial-gradient(ellipse at top, oklch(0.94 0.04 350) 0%, oklch(0.92 0.05 30) 35%, oklch(0.88 0.06 300) 100%);
+  --gradient-card: linear-gradient(135deg, oklch(0.98 0.015 25 / 0.85), oklch(0.94 0.04 350 / 0.65));
+  --gradient-gold: linear-gradient(135deg, oklch(0.88 0.10 80), oklch(0.78 0.12 50));
+  --gradient-moon: radial-gradient(circle, oklch(0.98 0.02 80) 0%, oklch(0.90 0.08 60) 60%, oklch(0.78 0.12 30 / 0) 100%);
+
+  --shadow-soft: 0 10px 40px -10px oklch(0.78 0.10 15 / 0.35);
+  --shadow-glow: 0 0 60px oklch(0.88 0.10 350 / 0.5), 0 0 120px oklch(0.82 0.10 80 / 0.25);
+  --shadow-card: 0 20px 60px -20px oklch(0.50 0.10 20 / 0.25), 0 0 0 1px oklch(1 0 0 / 0.5) inset;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { overflow-x: hidden; }
+  body {
+    background: var(--gradient-sky);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-serif);
+    min-height: 100vh;
+  }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0.02em; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) rotate(var(--rot, 0deg)); }
+  50% { transform: translate(var(--dx, 10px), var(--dy, -15px)) rotate(calc(var(--rot, 0deg) + 2deg)); }
+}
+@keyframes drift {
+  0% { transform: translateX(-10vw) translateY(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: translateX(110vw) translateY(-30px); opacity: 0; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+@keyframes butterfly {
+  0%, 100% { transform: translate(0,0) rotate(-5deg); }
+  25% { transform: translate(30px, -20px) rotate(8deg); }
+  50% { transform: translate(60px, 10px) rotate(-3deg); }
+  75% { transform: translate(30px, 25px) rotate(6deg); }
+}
+@keyframes petal-fall {
+  0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translateY(110vh) translateX(var(--sway, 80px)) rotate(720deg); opacity: 0; }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 30px oklch(0.88 0.10 350 / 0.4), 0 0 60px oklch(0.82 0.10 80 / 0.2); }
+  50% { box-shadow: 0 0 60px oklch(0.88 0.12 350 / 0.7), 0 0 120px oklch(0.82 0.12 80 / 0.4); }
+}
+@keyframes moon-pulse {
+  0%, 100% { filter: drop-shadow(0 0 60px oklch(0.95 0.08 60 / 0.6)) drop-shadow(0 0 120px oklch(0.88 0.10 30 / 0.4)); }
+  50% { filter: drop-shadow(0 0 100px oklch(0.95 0.10 60 / 0.9)) drop-shadow(0 0 200px oklch(0.88 0.12 30 / 0.6)); }
+}
+@keyframes heart-rise {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-110vh) translateX(var(--sway, 100px)) scale(1.2); opacity: 0; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes sparkle-fade {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  100% { transform: scale(1.5) rotate(180deg); opacity: 0; }
+}
+
+.font-display { font-family: var(--font-display); }
+.font-script { font-family: var(--font-script); }
+.font-serif-r { font-family: var(--font-serif); }
+
+.text-gold { color: var(--gold); }
+.bg-gradient-gold { background: var(--gradient-gold); }
+.bg-gradient-card { background: var(--gradient-card); }
+
+.placard {
+  background: var(--gradient-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid oklch(1 0 0 / 0.6);
+  box-shadow: var(--shadow-card);
+}
+
+.glow-soft { box-shadow: var(--shadow-glow); }
+.shimmer-text {
+  background: linear-gradient(90deg, var(--gold) 0%, oklch(0.95 0.04 30) 50%, var(--gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3s linear infinite;
+}
