@@ -18,7 +18,23 @@ const defaultCaptions = [
 ];
 
 export function MemoryAlbum() {
-  const [polaroids, setPolaroids] = useState<Polaroid[]>([]);
+  const [polaroids, setPolaroids] = useState<Polaroid[]>([   
+    {     
+      id: "1",     
+      src: "/src/assets/photos/photo1.jpg",     
+      caption: "Our First Memory",   
+    },   
+    {     
+      id: "2",     
+      src: "/src/assets/photos/photo2.jpg",     
+      caption: "You & Me",   
+    },
+    {     
+      id: "3",     
+      src: "/src/assets/photos/photo3.jpg",     
+      caption: "Forever Soft",   
+    }, 
+  ]);
   const [opened, setOpened] = useState<Polaroid | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
