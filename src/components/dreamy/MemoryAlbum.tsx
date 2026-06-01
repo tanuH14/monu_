@@ -22,22 +22,22 @@ export function MemoryAlbum() {
     {     
       id: "1",     
       src: "/assets/photos/photo1.jpeg",     
-      caption: "Our First Memory",   
+      caption: "Forever Yours",   
     },   
     {     
       id: "2",     
       src: "/assets/photos/photo2.jpeg",     
-      caption: "You & Me",   
+      caption: "My 11:11 Wish",   
     },
     {     
       id: "3",     
       src: "/assets/photos/photo3.jpeg",     
-      caption: "Forever Soft",   
+      caption: "Closest to my heart",   
     }, 
     {     
       id: "4",     
       src: "/assets/photos/photo4.jpeg",     
-      caption: "Forever Soft",   
+      caption: "My Everything",   
     }, 
   ]);
   const [opened, setOpened] = useState<Polaroid | null>(null);
