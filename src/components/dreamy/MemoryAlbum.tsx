@@ -38,23 +38,6 @@ export function MemoryAlbum() {
   const [opened, setOpened] = useState<Polaroid | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setPolaroids(JSON.parse(raw));
-    } catch {
-      /* ignore */
-    }
-  }, []);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(polaroids));
-    } catch {
-      /* ignore */
-    }
-  }, [polaroids]);
-
   const handleFiles = useCallback((files: FileList | null) => {
     if (!files) return;
     Array.from(files)
